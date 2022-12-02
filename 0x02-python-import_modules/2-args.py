@@ -9,16 +9,13 @@ if __name__ == '__main__':
     and prints the number of arguments and their value
 
     """
-    av = sys.argv
-    l_av = len(av) - 1
+    count = len(sys.argv) - 1
+    if count == 0:
+        print("0 arguments.")
 
-    if l_av > 1:
-        print(l_av, 'arguments:')
-        for i in range(1, l_av + 1):
-            print('{:d}: {}'.format(i, av[i]))
-        elif l_av == 1:
-            print(l_av, 'argument:')
-            for i in range(1, l_av + 1):
-                print('{:d}: {}'.format(i, av[i]))
-        elif l_av == 0:
-            print(l_av, 'arguments.')
+    elif count == 1:
+        print("1 argument:")
+    else:
+        print("{} arguments:".format(count))
+        for i in range(count):
+            print("{}: {}".format(i + 1, sys.argv[i + 1]))
